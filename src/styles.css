@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+/*
+ *让div的长度自适应文本内容，同时div居中
+ */
+.centerAndFitwidth {
+  width: fit-content;
+  margin: 0 auto;
+}

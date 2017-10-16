@@ -1,0 +1,30 @@
+<div>
+  <div class="row">
+    <div class="centerAndFitwidth">
+      <label>主持人</label>
+      <label>{{debateInfo.host}}</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div  class="centerAndFitwidth">
+        {{debateInfo.positivePoint}}
+        <div *ngFor="let debater of debateInfo.positiveteam">
+          <div  class="centerAndFitwidth">{{debater | debaterPipe}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="centerAndFitwidth">
+        {{debateInfo.negativePoint}}
+        <div *ngFor="let debater of debateInfo.negativeteam">
+          <div  class="centerAndFitwidth">{{debater | debaterPipe}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <button (click)="next()">下一环节</button>
+</div>
