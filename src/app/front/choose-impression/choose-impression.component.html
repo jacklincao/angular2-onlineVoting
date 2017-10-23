@@ -13,7 +13,7 @@
       <app-count-down #countdown [time]="time" ></app-count-down>
     </div>
     <div>
-      <button (click)="countdown.begin()">开始</button>
+      <button (click)="countdown.begin()" (dblclick)="begin()">开始</button>
     </div>
     <div>
       <button (click)="countdown.pause()">暂停</button>
@@ -23,6 +23,9 @@
     </div>
     <div>
       <button (click)="next()">下一环节</button>
+    </div>
+    <div>
+      <button  (click)="sendMessage()">发送测试</button>
     </div>
   </div>
 

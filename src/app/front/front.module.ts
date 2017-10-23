@@ -17,6 +17,7 @@ import {DebateServiceService} from "./debate-service/debate-service.service";
 import {RouterModule} from "@angular/router";
 import { DebaterPipePipe } from './pipe/debater-pipe.pipe';
 import { EndComponent } from './end/end.component';
+import {WebsocketServiceService} from "../shared/websocket-service/websocket-service.service";
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import { EndComponent } from './end/end.component';
     EndComponent
   ],
   providers: [
-    DebateServiceService
+    DebateServiceService,
+    WebsocketServiceService
   ]
 })
 export class FrontModule {

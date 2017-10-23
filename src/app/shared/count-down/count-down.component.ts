@@ -13,6 +13,9 @@ export class CountDownComponent implements OnInit {
   // 定时器
   private timer;
 
+  // 是否暂停
+  private isPause = false;
+
   constructor() {
   }
 
@@ -21,20 +24,29 @@ export class CountDownComponent implements OnInit {
    */
   public pause(): void {
     clearInterval(this.timer);
+    this.isPause = true;
   }
 
   /**
    * 开始
    */
   public begin(): void {
-    this.timer = setInterval(() => {
-      if (this.time > 0) {
-        this.time--;
-      }
-      else {
-        clearInterval(this.timer);
-      }
-    }, 1000);
+    if (!this.timer || this.isPause) {
+      this.timer = setInterval(() => {
+        if (this.time > 0) {
+          this.time--;
+        }
+        else {
+          clearInterval(this.timer);
+        }
+        if (this.isPause) {
+          this.isPause = false;
+        }
+      }, 1000);
+    }
+    else {
+      console.log("已经开始了");
+    }
   }
 
   /**
@@ -44,8 +56,10 @@ export class CountDownComponent implements OnInit {
   public reset(second): void {
     if (this.timer) {
       clearInterval(this.timer);
+      this.timer = null;
     }
     this.time = second;
+    this.isPause = false;
   }
 
   ngOnInit() {
